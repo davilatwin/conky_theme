@@ -1,0 +1,101 @@
+conky.config = {
+   alignment = 'top_right',
+   background = true,
+   border_width = 5,
+   cpu_avg_samples = 1,
+   default_color = 'white',
+   default_outline_color = 'white',
+   default_shade_color = 'white',
+   double_buffer = true,
+   draw_borders = false,
+   draw_graph_borders = true,
+   draw_outline = false,
+   draw_shades = false,
+   use_xft = true,
+   font = 'Exo 2:size=9:semibold',
+   gap_x = 14,
+   gap_y = 70,
+   imlib_cache_size = 10,
+   minimum_height = 0,
+   minimum_width = 316,
+   maximum_width = 316,
+   net_avg_samples = 2,
+   no_buffers = true,
+   out_to_console = false,
+   out_to_stderr = false,
+   extra_newline = false,
+   own_window = true,
+   own_window_class = 'Conky',
+   own_window_colour = '140418',
+   own_window_type = 'normal',
+   own_window_transparent = false,
+   own_window_argb_visual = true,
+   own_window_argb_value = 200,
+   own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+   stippled_borders = 0,
+   short_units = false,
+   text_buffer_size = 512,
+   update_interval = 1,
+   uppercase = false,
+   use_spacer = 'none',
+   show_graph_scale = true,
+   show_graph_range = false
+}
+conky.text = [[
+# Colors
+#
+# purple == D14EE3
+# purple 2 == D77FE3
+# purple 3 == B03BC3
+# blue == 77d3f4
+# blue 2 == 33b5e5
+# blue 3 == 0099cc
+# green == 75b704
+#
+### SYSTEM
+${voffset -5}${font Exo 2:semibold}${color D14EE3}[ SYSTEM :${color 77d3f4}: ${nodename}${color D14EE3} ] ${voffset 2}${hr 2}${voffset 0}$color
+${voffset 5}${font Exo 2:semibold:size=11}${color 77d3f4}Kernel Version: ${voffset -3}${font Exo 2:light:size=11}${alignr}${color D77FE3}${kernel}
+${voffset 0}${font Exo 2:semibold:size=11}${color 77d3f4}System Uptime: ${voffset -3}${font Exo 2:light:size=11}${alignr}${color D77FE3}${uptime}
+${voffset 0}${font Exo 2:semibold:size=11}${color 77d3f4}Available Updates: ${voffset -3}${font Exo 2:light:size=11}${alignr}${color D77FE3} ${execi 30 checkupdates | wc -l}
+### CPU
+${voffset 10}${font Exo 2:semibold}${color D14EE3}[ CPU ] ${voffset 2}${hr 2}${voffset 0}$color
+${image /home/twin1/Pictures/ryzen.jpeg -p 0,100 -s 72x50}${color 77d3f4}${voffset 5}${alignr}AMD® Ryzen™ 3 3200G
+${voffset 0}${alignr}${color D77FE3}${font Exo 2:light:size=16}${freq_g} GHz  @  ${acpitemp}${font Exo 2:semibold:size=13}°C
+${voffset 5}${color 75b704}${cpugraph 32,215} ${voffset -30}${alignr}${voffset 5}${color 75b704}${font Exo 2:light:size=20}${cpu cpu0}%
+### CPU CORES
+${voffset -15}${font Exo 2:size=12}${color 77d3f4}
+### TOP CPU PROCESSES
+${voffset 10}${color b4ebff}PROCESS (${processes}) ${goto 157}${color D14EE3}CPU%${color b4ebff}${goto 220}MEM${alignr}PID
+${voffset -10}${color 777777}${stippled_hr}${voffset -2}
+${color 77d3f4}${top name 1} ${goto 150}${top cpu 1}%${goto 215}${top mem_res 1}${alignr}${top_mem pid 1}
+${color 33b5e5}${top name 2} ${goto 150}${top cpu 2}%${goto 215}${top mem_res 2}${alignr}${top_mem pid 2}
+${color 0099cc}${top name 3} ${goto 150}${top cpu 3}%${goto 215}${top mem_res 3}${alignr}${top_mem pid 3}
+${color 0099cc}${top name 4} ${goto 150}${top cpu 4}%${goto 215}${top mem_res 4}${alignr}${top_mem pid 4}
+${color 0099cc}${top name 5} ${goto 150}${top cpu 5}%${goto 215}${top mem_res 5}${alignr}${top_mem pid 5}
+### TOP MEM PROCESSES
+${voffset 10}${font Exo 2:semibold}${color D14EE3}[ MEMORY ] ${voffset 2}${hr 2}${voffset 10}$color
+${image ~/Design/icons/corsair-logo.png -p 0,905 -s 64x64}${goto 100}${color DAC0DE}${voffset -8}${font Exo 2:bold:size=20}${mem}${color B03BC3}${goto 230}${voffset 4}${memgauge 19,40} ${color DAC0DE}${voffset -4}${font Exo 2:bold:size=14}$memperc%
+${goto 111}${color D77FE3}${font Exo 2:bold:size=14} / ${memmax}$font${alignr}${membar 12,105}
+${voffset 10}${color DA9BE3}PROCESS (${processes}) ${goto 157}${color D14EE3}MEM${color DA9BE3}${goto 220}MEM%${alignr}PID
+${voffset -10}${color 777777}${stippled_hr}${voffset -2}
+${color D77FE3}${top_mem name 1} ${goto 150}${top_mem mem_res 1}${goto 220}${top_mem mem 1}%${alignr}${top_mem pid 1}
+${color D14EE3}${top_mem name 2} ${goto 150}${top_mem mem_res 2}${goto 220}${top_mem mem 2}%${alignr}${top_mem pid 2}
+${color B03BC3}${top_mem name 3} ${goto 150}${top_mem mem_res 3}${goto 220}${top_mem mem 3}%${alignr}${top_mem pid 3}
+${color B03BC3}${top_mem name 4} ${goto 150}${top_mem mem_res 4}${goto 220}${top_mem mem 4}%${alignr}${top_mem pid 4}
+${color B03BC3}${top_mem name 5} ${goto 150}${top_mem mem_res 5}${goto 220}${top_mem mem 5}%${alignr}${top_mem pid 5}
+### DISK
+${voffset 15}${font Exo 2:semibold}${color D14EE3}[ DISK ] (free) ${voffset 2}${hr 2}$color${font}
+${voffset 5}${color 77d3f4}${fs_free /} Free (${color 33b5e5}${fs_free_perc /}%${color 77d3f4})$color   $alignr${color 33b5e5}${voffset 2}${fs_bar 10,150 /}$color
+### WIRELESS
+${voffset 5}${font Exo 2:semibold}${color D14EE3}[ Ether ] ${voffset 2}${hr 2}$color${font}
+${color 77d3f4}IP: ${voffset 0}${color 77d3f4}${addr enp5s0}
+### Speed: ${voffset 0}${color 77d3f4} Down: ${downspeed enp5s0} 
+###              Up: ${upspeed enp5s0}
+### QUOTE
+${voffset 10}${font Exo 2:semibold}${color D14EE3}[ CMUS ] ${voffset 2}${hr 2}$color${font}
+${voffset 5}${font Exo 2:semibold:size=11}${color 77d3f4}${cmus_title 30} - ${cmus_artist 30}
+${voffset 10}${font Exo 2:semibold}${color D14EE3}[ Words of Wisdom ] ${voffset 2}${color D14EE3}${hr 2}${voffset 5}${font Exo 2:semibold:size=9}${color 77d3f4}
+"Everyone's got a plan until they get 
+ punched in the mouth"
+- Mike Tyson
+]]
