@@ -86,14 +86,15 @@ ${color B03BC3}${top_mem name 5} ${goto 150}${top_mem mem_res 5}${goto 220}${top
 ### DISK
 ${voffset 15}${font Exo 2:semibold}${color D14EE3}[ DISK ] (free) ${voffset 2}${hr 2}$color${font}
 ${voffset 5}${color 77d3f4}${fs_free /} Free (${color 33b5e5}${fs_free_perc /}%${color 77d3f4})$color   $alignr${color 33b5e5}${voffset 2}${fs_bar 10,150 /}$color
-### WIRELESS
+### Network
 ${voffset 5}${font Exo 2:semibold}${color D14EE3}[ Ether ] ${voffset 2}${hr 2}$color${font}
 ${color 77d3f4}IP: ${voffset 0}${color 77d3f4}${addr enp5s0}
 ### Speed: ${voffset 0}${color 77d3f4} Down: ${downspeed enp5s0} 
 ###              Up: ${upspeed enp5s0}
-### QUOTE
+### Music player
 ${voffset 10}${font Exo 2:semibold}${color D14EE3}[ CMUS ] ${voffset 2}${hr 2}$color${font}
 ${voffset 5}${font Exo 2:semibold:size=11}${color 77d3f4}${cmus_title 30} - ${cmus_artist 30}
+### Quote
 ${voffset 10}${font Exo 2:semibold}${color D14EE3}[ Words of Wisdom ] ${voffset 2}${color D14EE3}${hr 2}${voffset 5}${font Exo 2:semibold:size=9}${color 77d3f4}
 "Everyone's got a plan until they get 
  punched in the mouth"
